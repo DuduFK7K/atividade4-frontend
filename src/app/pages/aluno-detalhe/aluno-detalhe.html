@@ -1,0 +1,32 @@
+<div *ngIf="!aluno">
+  <h2>Carregando aluno...</h2>
+</div>
+
+<div *ngIf="aluno" class="card">
+
+  <h1>{{ aluno.nome }}</h1>
+
+  <p>
+    <strong>RA:</strong>
+    {{ aluno.ra }}
+  </p>
+
+  <p>
+    <strong>Total de disciplinas:</strong>
+    {{ aluno.disciplinas.length }}
+  </p>
+
+  <h3>Disciplinas</h3>
+
+  <ul>
+
+    <li *ngFor="let d of aluno.disciplinas">
+
+      {{ d.nome }} -
+      {{ d.professor }}
+
+    </li>
+
+  </ul>
+
+</div>

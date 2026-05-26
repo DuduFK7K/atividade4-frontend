@@ -1,0 +1,83 @@
+<div class="card">
+
+  <h1>Editar Aluno</h1>
+
+  <div
+    *ngIf="mensagem"
+    class="mensagem"
+  >
+    {{ mensagem }}
+  </div>
+
+  <div class="campo">
+
+    <label>RA</label>
+
+    <input
+      type="text"
+      [(ngModel)]="aluno.ra"
+      disabled
+    >
+
+  </div>
+
+  <div class="campo">
+
+    <label>Nome</label>
+
+    <input
+      type="text"
+      [(ngModel)]="aluno.nome"
+      name="nome"
+      [disabled]="!editando"
+    >
+  </div>
+
+  <h2>Disciplinas</h2>
+
+  <div
+    class="disciplina"
+    *ngFor="let disc of aluno.disciplinas"
+  >
+
+    <input
+      type="text"
+      [(ngModel)]="disc.codigo"
+      [disabled]="!editando"
+    >
+
+    <input
+      type="text"
+      [(ngModel)]="disc.nome"
+      [disabled]="!editando"
+    >
+
+    <input
+      type="text"
+      [(ngModel)]="disc.professor"
+      [disabled]="!editando"
+    >
+
+  </div>
+
+  <div class="acoes">
+
+    <button
+      *ngIf="!editando"
+      (click)="habilitarEdicao()"
+      class="editar"
+    >
+      Editar
+    </button>
+
+    <button
+      *ngIf="editando"
+      (click)="salvar()"
+      class="salvar"
+    >
+      Salvar Alterações
+    </button>
+
+  </div>
+
+</div>

@@ -1,0 +1,29 @@
+<h2 class="titulo">Disciplinas do Aluno</h2>
+
+<table>
+
+  <thead>
+
+    <tr>
+      <th>Código</th>
+      <th>Disciplina</th>
+      <th>Professor</th>
+    </tr>
+
+  </thead>
+
+  <tbody>
+
+    <tr *ngFor="let disc of disciplinas">
+
+      <td>{{ disc.codigo }}</td>
+
+      <td>{{ disc.nome }}</td>
+
+      <td>{{ disc.professor }}</td>
+
+    </tr>
+
+  </tbody>
+
+</table>

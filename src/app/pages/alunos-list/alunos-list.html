@@ -1,0 +1,47 @@
+<h2 class="titulo">Lista de Alunos</h2>
+
+<div *ngIf="carregando" class="loading">
+  Carregando alunos...
+</div>
+
+<div *ngIf="erro" class="erro">
+  {{ erro }}
+</div>
+
+<div class="grid">
+
+  <div class="card" *ngFor="let aluno of alunos">
+
+    <h3>{{ aluno.nome }}</h3>
+
+    <p>
+      <strong>RA:</strong>
+      {{ aluno.ra }}
+    </p>
+
+    <p>
+      <strong>Disciplinas:</strong>
+      {{ aluno.disciplinas.length }}
+    </p>
+
+    <div class="acoes">
+
+      <a
+        [routerLink]="['/aluno', aluno.ra]"
+        class="btn detalhes"
+      >
+        Detalhes
+      </a>
+
+      <a
+        [routerLink]="['/aluno', aluno.ra, 'editar']"
+        class="btn editar"
+      >
+        Editar
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
